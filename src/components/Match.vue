@@ -1,5 +1,5 @@
 <template>
-  <div v-if="storeState.logged">
+  <div>
     <h1 class="title">Statement Picture Match</h1>
     <p class="intro">Click on a card and read the statement.</p>
 

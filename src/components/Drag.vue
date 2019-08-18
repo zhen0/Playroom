@@ -1,7 +1,7 @@
 
 
 <template>
-  <div v-if="storeState.logged">
+  <div>
     <h1 class="title">Sentence Actvity</h1>
     <h3 class="title">Which phase do you want?</h3>
     <div id="container">

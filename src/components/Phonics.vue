@@ -2,24 +2,17 @@
 
 <template>
   <div id="container">
-    <div v-if="storeState.logged" id="navBar">
-      <h1 class="title">Phonics For Life</h1>
-      <p class="intro">Choose An Activity:</p>
+    <div id="navBar">
+      <h1 class="title">Hillman Playroom</h1>
+      <p class="intro">Because sometimes you just need to get out of the apartment!</p>
 
-      <router-link to="/flash" class="intro">Flash Cards</router-link>
+      <router-link to="/flash" class="intro">Info</router-link>
       {{" "}}
-      <router-link to="/drag" class="intro">Sentence Activity</router-link>
+      <router-link to="/drag" class="intro">Join</router-link>
       {{" "}}
-      <router-link to="/match" class="intro">Statement /Picture Match</router-link>
+      <router-link to="/match" class="intro">Rentals</router-link>
     </div>
     <router-view></router-view>
-
-    <div v-if="!storeState.logged">
-      <h2>Please enter the password.</h2>
-      <input v-model="message" placeholder="enter" />
-      <p>You entered: {{ this.message }}</p>
-      <button @click="checkPassword(message)">Enter</button>
-    </div>
   </div>
 </template>
 
@@ -101,6 +94,7 @@ export default {
   align-self: flex-start;
   align-items: center;
   height: 50px;
+  width: 90%;
   padding-top: 15px;
   padding-bottom: 15px;
 }
