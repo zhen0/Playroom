@@ -7,17 +7,22 @@ import Flash from "./components/Flash.vue";
 import Drag from "./components/Drag.vue";
 import Phonics from "./components/Phonics";
 import Match from "./components/Match.vue";
-import Menu from "./components/Menu.vue";
+import Card from "./components/Card.vue";
+import PictureCard from "./components/PictureCard.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
-  { path: "/flash", component: Flash },
-  { path: "/drag", component: Drag },
+  { path: "/info", component: Flash },
+  { path: "/join", component: Drag },
   { path: "/home", component: Phonics },
   { path: "/app", component: App },
-  { path: "/match", component: Match },
-  { path: "/menu", component: Menu }
+  { path: "/rentals", component: Match },
+  { path: "/classes", component: Card },
+  {
+    path: "/faq",
+    component: PictureCard
+  }
 ];
 
 const router = new VueRouter({

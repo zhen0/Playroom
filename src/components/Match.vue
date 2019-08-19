@@ -1,58 +1,78 @@
 <template>
   <div>
-    <h1 class="title">Statement Picture Match</h1>
-    <p class="intro">Click on a card and read the statement.</p>
+    <h2>Room Rental Rates</h2>
+    <p>
+Play Space members:  $35 per hour </p>
 
-    <div class="container" :list="statements" group="words">
-      <div v-for="card in statements" v-bind:key="card.id">
-        <StatementCard :card="card" />
-      </div>
-    </div>
-    <p
-      class="intro"
-    >Choose the picture that matches your statement. Click on the picture to see the word for that picture.</p>
-    <div class="container" :list="pictures" group="words">
-      <div v-for="card in pictures" v-bind:key="card.id">
-        <PictureCard :card="card" />
-      </div>
-    </div>
-    <div class="check">
-      <button class="button" @click="match">Click here to check if you were correct!</button>
-      <p class="intro">{{this.message}}</p>
-    </div>
+<p>Non- Play Space members: $60 per hour</p>
+<h3>Please note, renters who would like to receive the discounted rate must be members for at least 6 months.  A member joining after February, can either pay retroactively or can pay for the remainder of the year plus pre-register and pay for the following year.  </h3>
+
+<p>A $30 cleaning fee will be added for anyone renting the room. </p>
+<p>All rentals require a 3 hour minimum for rental.
+A rental is considered reserved once it is paid for.  </p>
+<p>A $100.00 deposit is required for rentals. This can be given in the form of a check which will be voided/torn/returned as preferred by renter (or a venmo payment which we return) once the rental is complete and the room is returned in good, clean condition.</p>
+<h3>Rental Availability</h3>
+  <iframe src="https://calendar.google.com/calendar/embed?src=hillmanplay%40gmail.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+<h3>To rent the room:</h3>
+<ol>
+  <li>Please check room availability in the calendar above.
+</li>
+<li> <a href="https://goo.gl/2oQQ9G" target="_blank">Please click on the link to complete the Google Rental Request form.</a></li>
+<li>PAYMENT:
+
+
+
+<a href="https://www.paypal.com/webapps/mpp/send-money-online" target="_blank">The best way to pay is by Paypal</a>
+
+<p>In the TO section enter the following email address:   hillmanplay@gmail.com  
+
+Please send payment as friends and family to avoid an extra fee. In the note section please write "Rental” and the date of your rental </p>
+
+<p>If you wish to pay by cash or Check, please email hillmanplay@gmail.com to arrange payment. Please be aware that there may be a delay of a few days in replying.</p></li>
+
+</ol>
+
+<p>Non-members who are renting the room can have the guard open the room for them.  </p>
+
+<p>It is the responsibility of those renting the room the make sure the room is tidy and clean: decorations removed, spills wiped up and the floor swept. There are cleaning supplies in the front foyer (broom, wipes and paper towels) to be used to wipe down surfaces, sweep and mop up spills. Failure to return the room in good clean condition will forfeit the return of the rental deposit. Any toys, play structures missing or damaged will be replaced, fixed or paid for by the renter. </p>
+
+<h2>RENTAL CLEAN UP CHECKLIST</h2>
+<ul>
+  
+  <li>Chairs are folded and put back</li>
+  <li>Room is tidy</li>
+  <li>Decorations have been removed</li>
+  <li>Spills wiped or mopped up</li>
+  <li>Floor is swept</li>
+  <li>All garbage has been disposed in the garbage containers outside the play/community room.</li>
+
+
+
+</ul>
+
+
+
   </div>
 </template>
 
 
 <script>
-import { stats1 } from "../data/statementsPhase2.js";
-import { pics1 } from "../data/statPicsPhase2.js";
-import { store } from "../store.js";
-import PictureCard from "./PictureCard.vue";
-import StatementCard from "./StatementCard.vue";
+
 
 export default {
   name: "Match",
   props: {},
   data() {
     return {
-      pictures: pics1,
-      statements: stats1,
-      message: "",
-      storeState: store.state
+      
     };
   },
 
   methods: {
-    async match() {
-      const message = await store.match();
-      // this.show = !this.show;
-      this.message = message;
-    }
+    
   },
   components: {
-    StatementCard,
-    PictureCard
+    
   }
 };
 </script>
@@ -69,60 +89,19 @@ export default {
   justify-content: space-evenly;
   background-color: #e8eef2;
 }
-.check {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+p {
+  align-self: flex-start;
+  text-align: left;
+}
+li {
+  text-align: left;
+}
+h3 {
+  text-align: left;
 
-  justify-content: space-evenly;
-  margin-top: 20px;
-  background-color: #e8eef2;
 }
-.button {
-  font-size: 15px;
-  font-family: "Patrick Hand";
+h2 {
+  text-align: left;
 
-  background-color: darkgray;
-  box-shadow: 5px 5px 5px rgb(46, 46, 46);
-  border-radius: 10px;
-}
-@media screen and (max-width: 600px) {
-  .intro {
-    font-size: 15px;
-    font-family: "Patrick Hand";
-    margin-top: 5px;
-  }
-  .title {
-    font-family: "Patrick Hand";
-    font-size: 20px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
-}
-@media screen and (min-width: 600px) and (max-width: 1500px) {
-  .intro {
-    font-size: 20px;
-    font-family: "Patrick Hand";
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-  .title {
-    font-family: "Patrick Hand";
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
-}
-@media screen and (min-width: 1500px) {
-  .intro {
-    font-size: 30px;
-    font-family: "Patrick Hand";
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-  .title {
-    font-family: "Patrick Hand";
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
 }
 </style>

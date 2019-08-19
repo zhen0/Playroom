@@ -6,37 +6,39 @@
       <h1 class="title">Hillman Playroom</h1>
       <p class="intro">Because sometimes you just need to get out of the apartment!</p>
 
-      <router-link to="/flash" class="intro">Info</router-link>
+      <router-link to="/info" class="intro">Info</router-link>
       {{" "}}
-      <router-link to="/drag" class="intro">Join</router-link>
+      <router-link to="/join" class="intro">Join</router-link>
       {{" "}}
-      <router-link to="/match" class="intro">Rentals</router-link>
+      <router-link to="/rentals" class="intro">Rentals</router-link>
+      {{" "}}
+      <router-link to="/classes" class="intro">Classes</router-link>
+      {{" "}}
+      <router-link to="/faq" class="intro">FAQs</router-link>
+      {{" "}}
     </div>
     <router-view></router-view>
+    <div>
+      <img :src="playhouse" />
+      </div>
   </div>
 </template>
 
 
 <script>
-import { store } from "../store.js";
-// import Flash from "./Flash.vue";
-// import Drag from "./Drag.vue";
+import playhouse from "../assets/Playhouse.jpg"
 export default {
   name: "Phonics",
   props: {},
   data() {
     return {
-      storeState: store.state,
-      message: ""
+      playhouse: playhouse
+      
     };
   },
 
   methods: {
-    checkPassword() {
-      this.message === "123Abc"
-        ? (this.storeState.logged = true)
-        : (this.storeState.logged = false);
-    }
+    
   },
   components: {}
 };
